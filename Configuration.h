@@ -536,6 +536,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
+
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 100 }
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 1600, 418.5f }
 
@@ -552,7 +553,8 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 10000 }
+//#define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 400, 400, 100, 10000 }
 
 
 /**
