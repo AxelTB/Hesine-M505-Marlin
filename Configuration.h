@@ -74,7 +74,7 @@
 // User-specified version info of this build to display in [Pronterface, etc] terminal window during
 // startup. Implementation of an idea by Prof Braino to inform user that any changes made to this
 // build by the user have been successfully uploaded into firmware.
-#define STRING_CONFIG_H_AUTHOR "(Axxx, Hesine M505)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(Bob Kuhn, Anet config)" // Who made the changes.
 #define SHOW_BOOTSCREEN
 #define STRING_SPLASH_LINE1 SHORT_BUILD_VERSION // will be shown during bootup in line 1
 #define STRING_SPLASH_LINE2 WEBSITE_URL         // will be shown during bootup in line 2
@@ -404,10 +404,11 @@
 
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
-  //Hesine M505 Bed
-  #define  DEFAULT_bedKp 164.27
-  #define  DEFAULT_bedKi 16.04
-  #define  DEFAULT_bedKd 420.53
+  //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
+  //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
+  #define  DEFAULT_bedKp 10.00
+  #define  DEFAULT_bedKi .023
+  #define  DEFAULT_bedKd 305.4
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from pidautotune
@@ -536,7 +537,10 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
 
-//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 100 }
+//Hesine M505 Standard
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 1600, 100 }
+
+//Hesine M505 with titan extruder and original stepper
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 1600, 418.5f }
 
 /**
@@ -552,8 +556,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-//#define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 10000 }
-#define DEFAULT_MAX_ACCELERATION      { 400, 400, 100, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 10000 }
 
 
 /**
